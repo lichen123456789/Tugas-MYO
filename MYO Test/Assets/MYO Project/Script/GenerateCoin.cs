@@ -25,7 +25,7 @@ public class GenerateCoin : MonoBehaviour {
 	public Text[] Label;
 
 	public int Score=0;
-	public float Timer = 60;
+	public float Timer = 100;
 
 	public GameObject[] LayerGame;
 
@@ -54,13 +54,19 @@ public class GenerateCoin : MonoBehaviour {
 
 	void Update()
 	{
-		if (Timer >= 0) {
-			Timer -= Time.deltaTime;
-		} else {
-			GameEnd ();
-		}
-		Label [1].text = "Timer : " + Timer.ToString ("0");
-
+        if (PlayerMovement.Instance.Move)
+        {
+            if (Timer >= 0)
+            {
+                Timer -= Time.deltaTime;
+            }
+            else
+            {
+                GameEnd();
+            }
+            Label[1].text = "Timer : " + Timer.ToString("0");
+        }
+        
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
 
         // Update references when the pose becomes fingers spread or the q key is pressed.

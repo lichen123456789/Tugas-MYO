@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject myo = null;
 	// Use this for initialization
 	Rigidbody m_Rigidbody;
+    public bool isFlat = true;
 
     float smooth = 1.0f;
     float tiltAngle = 60;
@@ -29,14 +30,41 @@ public class PlayerMovement : MonoBehaviour {
 
     bool End = false;
 
+    public float Sensitif = 70;
+    public float Loudness = 0;
+    AudioSource _audio;
+
+    public bool Move = true;
+    public GameObject Roket,Ledakan;
+    public static PlayerMovement Instance;
+
     void Start () {
 		m_Rigidbody = GetComponent<Rigidbody>();
+        _audio = GetComponent<AudioSource>();
+        _audio.clip = Microphone.Start(null, true, 10, 44100);
+        _audio.loop = true;
+        //_audio.
+        while (!(Microphone.GetPosition(null) > 0)){ }
+        _audio.Play();
+
+        if (Instance == null)
+            Instance = this;
 	}
+
+    float GetAverage()
+    {
+        float[] data = new float[256];
+        float a = 0;
+        _audio.GetOutputData(data, 0);
+        foreach(float s in data)
+        {
+            a += Mathf.Abs(s);
+        }
+        return a / 256;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (Vector3.forward * MoveSpeeed * Time.deltaTime);
-
 
 
         /*if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -49,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 		else if (Input.GetKey (KeyCode.DownArrow)) {
             transform.Rotate(-5 * Time.deltaTime, 0,0);
-        }*/
+        }
 
 
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo> ();
@@ -180,14 +208,40 @@ public class PlayerMovement : MonoBehaviour {
 
                 ExtendUnlockAndNotifyUserAction(thalmicMyo);
             }
+        }*/
+
+
+        if (Move)
+        {
+            Vector2 tilt = Vector2.zero;
+
+            tilt.x = Input.acceleration.x;
+            tilt.y = Input.acceleration.y;
+
+            transform.Rotate(new Vector3(tilt.y, tilt.x, 0), Space.World);
+
+            Loudness = GetAverage() * Sensitif;
+            if (Loudness > 4)
+            {
+                Roket.SetActive(true);
+                transform.Translate(Vector3.forward * Loudness*MoveSpeeed * Time.deltaTime);
+            }else
+            {
+                Roket.SetActive(false);
+            }
         }
-	}
+
+    }
 
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag == "Death") {
-			GenerateCoin.Instance.GameEnd ();
+            GameObject Get = Instantiate(Ledakan, transform.position, Quaternion.identity);
+            Destroy(Get, 1);
+            GenerateCoin.Instance.GameEnd ();
 		} else if (other.gameObject.tag == "Score") {
+            GameObject Get = Instantiate(Ledakan, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(Get, 1);
 			Destroy (other.gameObject);
 			GenerateCoin.Instance.Timer += 5;
 			GenerateCoin.Instance.CreateCoin ();

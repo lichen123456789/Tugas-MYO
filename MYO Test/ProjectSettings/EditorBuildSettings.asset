@@ -5,13 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/FaceTrackerExample/Scenes/FaceTrackerExample.unity
-  - enabled: 1
-    path: Assets/FaceTrackerExample/Scenes/ShowLicense.unity
-  - enabled: 1
-    path: Assets/FaceTrackerExample/Scenes/Texture2DFaceTrackerExample.unity
-  - enabled: 1
-    path: Assets/FaceTrackerExample/Scenes/WebCamTextureFaceTrackerExample.unity
-  - enabled: 1
-    path: Assets/FaceTrackerExample/Scenes/FaceTrackerARExample.unity
+    path: Assets/MYO Project/Scene/Game.unity
+    guid: 4aa23010dc6a0dc439b2effbf4d8f01c
