@@ -7,11 +7,11 @@ PlayerSettings:
   productGUID: aa8ddeaaccaf3f34e8d20b9e5ad5d436
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: pesawat
   productName: MYO Test
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

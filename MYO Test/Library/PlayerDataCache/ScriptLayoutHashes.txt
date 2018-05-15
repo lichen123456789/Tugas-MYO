@@ -137,6 +137,7 @@ bb797ce0751aa4810da684c1b0522e6c Assembly-CSharp.dll:.ThalmicHub
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
+149dae032eee83a1bc1aa928302bd58b Assembly-CSharp.dll:.GryoControl
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -147,4 +148,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 34cfa0780e607a1e373bbd1b1f05ad6e Assembly-CSharp.dll:.GenerateCoin
 6537b56ff7b4af3c88f24f3b7196890f Assembly-CSharp.dll:.PlayerMovement
 3bf816ad30a54e11b37c999100e80a70 Assembly-CSharp.dll:.SampleSceneGUI
-149dae032eee83a1bc1aa928302bd58b Assembly-CSharp.dll:.GryoControl
